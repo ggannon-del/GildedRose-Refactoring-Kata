@@ -17,36 +17,36 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(conjured_item.quality, 4)
 
     def test_aged_brie_increases_in_quality(self):
-        print("Tets a bug")
+        
         brie = Item("Aged Brie", 2, 0)
         self.items.append(brie)
         self.gilded_rose.update_quality()
         self.assertEqual(brie.quality, 0)
 
     def test_backstage_pass_increases_in_quality(self):
-        print("Tets a bug")
+        
         backstage_pass = Item("Backstage passes to a TAFKAL80ETC concert", 15, 20)
         self.items.append(backstage_pass)
         self.gilded_rose.update_quality()
-        self.assertEqual(backstage_pass.quality, 20)
+        self.assertEqual(backstage_pass.quality, 21)
 
-    def test_backstage_pass_quality_increase_by_3_in_last_five_days(self):
-        print("Tets a bug")
-        backstage_pass = Item("Backstage passes to a TAFKAL80ETC concert", 4, 20)
+
+    def test_backstage_pass_quality_increases_by_2_in_last_ten_days(self):
+    
+    
+        backstage_pass = Item("Backstage passes to a TAFKAL80ETC concert", 9, 20)
         self.items.append(backstage_pass)
         self.gilded_rose.update_quality()
         self.assertEqual(backstage_pass.quality, 22)
 
-    def test_backstage_pass_quality_double_in_last_ten_days(self):
+    def test_backstage_pass_quality_increase_by_3_in_last_five_days(self):
         
-        
-        
-        
-        print("Tets a bug")
-        backstage_pass = Item("Backstage passes to a TAFKAL80ETC concert", 9, 20)
+        backstage_pass = Item("Backstage passes to a TAFKAL80ETC concert", 4, 20)
         self.items.append(backstage_pass)
         self.gilded_rose.update_quality()
-        self.assertEqual(backstage_pass.quality, 21)
+        self.assertEqual(backstage_pass.quality, 23)
+
+
 
     def test_backstage_pass_quality_drops_to_zero_after_concert(self):
         
