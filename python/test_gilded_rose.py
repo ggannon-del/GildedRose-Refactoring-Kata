@@ -32,8 +32,7 @@ class GildedRoseTest(unittest.TestCase):
 
 
     def test_backstage_pass_quality_increases_by_2_in_last_ten_days(self):
-    
-    
+
         backstage_pass = Item("Backstage passes to a TAFKAL80ETC concert", 9, 20)
         self.items.append(backstage_pass)
         self.gilded_rose.update_quality()
@@ -45,8 +44,6 @@ class GildedRoseTest(unittest.TestCase):
         self.items.append(backstage_pass)
         self.gilded_rose.update_quality()
         self.assertEqual(backstage_pass.quality, 23)
-
-
 
     def test_backstage_pass_quality_drops_to_zero_after_concert(self):
         
@@ -63,14 +60,17 @@ class GildedRoseTest(unittest.TestCase):
         self.assertEqual(sulfuras.quality, 80)
     
     def test_normal_item_decreases_in_quality(self):
-        
+
         normal_item = Item("Normal Item", 10, 20)
         self.items.append(normal_item)
         self.gilded_rose.update_quality()
         self.assertEqual(normal_item.quality, 19)
 
-
-
-        
+    def test_quality_never_more_than_50_apart_from_leg_item(self):
+        any_item = Item("", 14, 48)
+        self.items.append(any_item)
+        self.gilded_rose.update_quality()
+        self.assertLessEqual(any_item.quality, 50)
+              
 if __name__ == '__main__':
     unittest.main()

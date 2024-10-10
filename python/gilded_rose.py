@@ -10,29 +10,27 @@ class GildedRose(object):
             if item.quality <= 50:
                 if "Conjured" in item.name:
                     self.decrease_quality_normal_and_conjured(item)
+                    self.check_if_quality_over_50(item)
                 if "Brie" in item.name:
                     self.increase_quality_agedBrie_and_backstagePass(item)
+                    self.check_if_quality_over_50(item)
                 if "Backstage" in item.name:
                     self.update_quality_BackstagePass(item)
+                    self.check_if_quality_over_50(item)
                 else:
                     self.decrease_quality_normal_and_conjured(item)
             if item.quality == 80:
                 self.update_quality_Sulfuras(item)
-            
-        
+               
     def check_if_quality_over_50(self, item):
         if item.quality > 50:
-            item.quality == 50                  
+            item.quality = 50                  
     def decrease_quality_normal_and_conjured(self, item):
         item.quality -=  1
         
-
     def increase_quality_agedBrie_and_backstagePass(self, item):
         item.quality += 1
-        
-      
-   
-
+    
     def update_quality_BackstagePass(self, item): 
         if item.sell_in >0:
             self.increase_quality_agedBrie_and_backstagePass(item)
@@ -49,10 +47,10 @@ class GildedRose(object):
 
             item.quality = 0   
 
-  
-
     def update_quality_Sulfuras(self, item):
         item.quality = 80
+
+
 
 class Item:
     def __init__(self, name, sell_in, quality):
