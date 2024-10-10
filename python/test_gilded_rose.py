@@ -39,7 +39,7 @@ class GildedRoseTest(unittest.TestCase):
         self.gilded_rose.update_quality()
         self.assertEqual(backstage_pass.quality, 22)
 
-    def test_backstage_pass_quality_increase_by_3_in_last_five_days(self):
+    def test_backstagePass_quality_increase_by_3_in_last_five_days(self):
         
         backstage_pass = Item("Backstage passes to a TAFKAL80ETC concert", 4, 20)
         self.items.append(backstage_pass)
@@ -69,7 +69,7 @@ class GildedRoseTest(unittest.TestCase):
         self.gilded_rose.update_quality()
         self.assertEqual(normal_item.quality, 19)
 
- 
+
 
         
 if __name__ == '__main__':

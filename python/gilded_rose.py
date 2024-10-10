@@ -20,12 +20,16 @@ class GildedRose(object):
                 self.update_quality_Sulfuras(item)
             
         
-                        
+    def check_if_quality_over_50(self, item):
+        if item.quality > 50:
+            item.quality == 50                  
     def decrease_quality_normal_and_conjured(self, item):
         item.quality -=  1
+        
 
     def increase_quality_agedBrie_and_backstagePass(self, item):
         item.quality += 1
+        
       
    
 
